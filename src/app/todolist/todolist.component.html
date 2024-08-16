@@ -1,0 +1,16 @@
+<div class="todo-container">
+    <h1>TODO List</h1>
+    <input type="text" [(ngModel)]="newTodo" placeholder="Add a New Task"/>
+    <button id = "button1" (click)="addTodo()">ADD</button>
+</div>
+<div class="todo-delete">
+    <ul>
+        <li *ngFor="let todo of todos; let i = index">
+            <span *ngIf="!todo.isEditing">{{ todo.task }}</span>
+            <input *ngIf="todo.isEditing" [(ngModel)]="todo.task" />
+            <button id = "button3" *ngIf="!todo.isEditing" (click)="editTask(i)">Edit</button>
+            <button id = "button4" *ngIf="todo.isEditing" (click)="saveTask(i)">Save</button>
+            <button id = "button2" (click)="Delete(i)">Delete</button>
+          </li>
+    </ul>
+</div>
